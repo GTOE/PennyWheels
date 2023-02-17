@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-17T10:17:19.816Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="b2TTz7B8ZtGSfd_05yPD" version="20.8.20" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-17T12:16:26.985Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="wpr0uAQe_BiVTB1pAdWH" version="20.8.20" type="github">
   <diagram name="Page-1" id="zPEScbMWXtFK_xSytWa4">
     <mxGraphModel dx="1562" dy="870" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
       <root>
@@ -81,7 +81,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Gyt0s4nD5wy79-G4LRoK-29" value="Output" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="220" y="560" width="70" height="90" as="geometry" />
+          <mxGeometry x="240" y="560" width="70" height="90" as="geometry" />
         </mxCell>
         <mxCell id="Gyt0s4nD5wy79-G4LRoK-30" value="Distance" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="Gyt0s4nD5wy79-G4LRoK-29">
           <mxGeometry y="30" width="70" height="30" as="geometry" />
@@ -193,6 +193,27 @@
               <mxPoint x="790" y="500" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="Gyt0s4nD5wy79-G4LRoK-67" value="" style="endArrow=none;html=1;rounded=0;strokeColor=default;fontSize=10;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint y="540" as="sourcePoint" />
+            <mxPoint x="1020" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Gyt0s4nD5wy79-G4LRoK-68" value="" style="endArrow=none;html=1;rounded=0;strokeColor=default;fontSize=10;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint y="460" as="sourcePoint" />
+            <mxPoint x="1020" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Gyt0s4nD5wy79-G4LRoK-69" value="&lt;b&gt;Backend for Frontend (BFF)&lt;/b&gt;&lt;br&gt;&lt;br&gt;NodeJS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="930" y="485" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Gyt0s4nD5wy79-G4LRoK-70" value="&lt;b&gt;Frontend&lt;br&gt;&lt;/b&gt;&lt;br&gt;HTML/CSS/JS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="930" y="690" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Gyt0s4nD5wy79-G4LRoK-71" value="&lt;b&gt;External&lt;/b&gt;&lt;br&gt;&lt;br&gt;JSON" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="930" y="295" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
