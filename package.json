@@ -3,6 +3,13 @@
   "source": "src/index.html",
   "version": "0.0.0",
   "description": "An app which provides the most cost-effective car-sharing option for end users",
+  "contributors": [
+    {
+      "name": "Hessel Amann",
+      "email": "hessel.amann@gmail.com",
+      "url": "https://hesselamann.com/"
+    }
+  ],
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel",
@@ -15,7 +22,6 @@
   "keywords": [
     "pennywheels"
   ],
-  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/GTOE/PennyWheels/issues"
