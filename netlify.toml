@@ -1,5 +1,15 @@
 [build]
-  functions = "api"
+  functions = "functions"
+
+[dev]
+  publish = "dist"
+
+[[redirects]]
+  from = "https://pennywheels.netlify.app/api/*"
+  to = "https://pennywheels.autos/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "https://pennywheels.netlify.app/*"
   to = "https://pennywheels.autos/:splat"

@@ -1,6 +1,6 @@
 .DS_Store
 /node_modules
-/api
+/functions
 /.parcel-cache
 /dist
 # Local Netlify folder

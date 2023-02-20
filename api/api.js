@@ -8,7 +8,7 @@ const app = express();
 const router = express.Router();
 
 // Define a route that responds with a JSON object when a GET request is made to the route path
-router.get("/route/", (req, res) => {
+router.get("/route", (req, res) => {
   res.json({
     distance: 3221,
     time: 10,

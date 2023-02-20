@@ -1,6 +1,6 @@
 {
   "name": "pennywheels",
-  "source": "src/index.html",
+  "source": "app/index.html",
   "version": "0.0.0",
   "description": "An app which provides the most cost-effective car-sharing option for end users",
   "contributors": [
@@ -14,10 +14,10 @@
   "scripts": {
     "start": "run-p dev:*",
     "dev:app": "parcel",
-    "dev:api": "cross-env NODE_OPTIONS=--openssl-legacy-provider ./node_modules/.bin/netlify-lambda serve functions",
-    "build": "run-p prod:*",
+    "dev:api": "cross-env NODE_OPTIONS=--openssl-legacy-provider ./node_modules/.bin/netlify-lambda serve api",
+    "build": "run-s prod:*",
     "prod:app": "parcel build",
-    "prod:api": "./node_modules/.bin/netlify-lambda build functions"
+    "prod:api": "cross-env NODE_OPTIONS=--openssl-legacy-provider ./node_modules/.bin/netlify-lambda build api"
   },
   "repository": {
     "type": "git",
