@@ -17,7 +17,7 @@
     "dev:api": "cross-env NODE_OPTIONS=--openssl-legacy-provider ./node_modules/.bin/netlify-lambda serve api",
     "build": "run-s prod:*",
     "prod:app": "parcel build",
-    "prod:api": "cross-env NODE_OPTIONS=--openssl-legacy-provider ./node_modules/.bin/netlify-lambda build api"
+    "prod:api": "./node_modules/.bin/netlify-lambda build api"
   },
   "repository": {
     "type": "git",
