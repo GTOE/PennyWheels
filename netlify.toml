@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://pennywheels.netlify.app/*"
+  to = "https://pennywheels.autos/:splat"
+  status = 301
+  force = true
