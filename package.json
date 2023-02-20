@@ -14,7 +14,7 @@
   "scripts": {
     "start": "run-p dev:*",
     "dev:app": "parcel",
-    "dev:api": "cross-env NODE_OPTIONS=--openssl-legacy-provider ./node_modules/.bin/netlify-lambda serve api",
+    "dev:api": "./node_modules/.bin/netlify-lambda serve api",
     "build": "run-s prod:*",
     "prod:app": "parcel build",
     "prod:api": "./node_modules/.bin/netlify-lambda build api"
