@@ -5,8 +5,8 @@
   publish = "dist"
 
 [[redirects]]
-  from = "https://pennywheels.netlify.app/api/*"
-  to = "https://pennywheels.autos/.netlify/functions/api/:splat"
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
   status = 200
   force = true
 
