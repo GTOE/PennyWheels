@@ -1,3 +1,7 @@
+.DS_Store
 /node_modules
+/api
 /.parcel-cache
 /dist
+# Local Netlify folder
+.netlify
