@@ -7,7 +7,8 @@ const config = {
   },
   element: {
     CALCULATE_BTN: `#calculate-btn`,
-    RESULT_LIST: `#result-list`
+    RESULT_LIST: `#result-list`,
+    TIME_DISTANCE_INFO: `#time-distance-info`
   }
 }
 
@@ -21,6 +22,7 @@ async function handleClick(event) {
   fetch(config.endpoint.ROUTE_ENDPOINT)
     .then((response) => response.json())
     .then((data) => {
+      showTimeAndDistance(data)
       fetch(config.endpoint.CARS_ENDPOINT + `${data.distance}/${data.time}`)
         .then((response) => response.json())
         .then(showResults)
@@ -32,7 +34,6 @@ function showResults(data) {
   document.querySelectorAll('li').forEach((el) => el.remove())
 
   data.forEach((element) => {
-    console.log(element)
     const listEl = document.createElement('li')
     listEl.innerHTML = `<b>Anbieter:</b> ${element.firm} <br> <b>Modell:</b> ${
       element.car
@@ -40,4 +41,13 @@ function showResults(data) {
 
     resultListEl.append(listEl)
   })
+}
+
+function showTimeAndDistance(data) {
+  const timeDistanceInfoEl = document.querySelector(
+    config.element.TIME_DISTANCE_INFO
+  )
+  timeDistanceInfoEl.innerHTML = `<b>Geschätzte Zeit:</b> ${
+    data.time
+  } Minute(n) <b>Entfernung:</b> ${Math.round(data.distance * 100) / 100} km`
 }
