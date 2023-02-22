@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>My First Parcel App</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8"/>
+    <title>PennyWheels</title>
+    <link rel="stylesheet" href="styles.css"/>
     <script type="module" src="app.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+  type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+  type="text/javascript" charset="utf-8"></script>
   </head>
   <body>
     <main>
       <h1>PennyWheels</h1>
-      <form>
+      <form class="centered">
         <label>
           Start
-          <input type="text" />
+          <input type="text"/>
         </label>
         <label>
           Ziel
-          <input type="text" />
+          <input type="text"/>
         </label>
 
         <button type="submit">berechnen</button>
       </form>
-
-      <ul>
+      <ul class="centered">
         <li>Ergebnis 1</li>
         <li>Ergebnis 2</li>
         <li>Ergebnis 3</li>
       </ul>
+      <hr>
+      <div class="map-wrapper">
+        <div id="mapContainer"></div>
+        <div id="panel" class="centered"></div>
+      </div>
     </main>
   </body>
 </html>
