@@ -1,25 +1,28 @@
-const express = require("express");
-const serverless = require("serverless-http");
+const express = require('express')
+const serverless = require('serverless-http')
+const cors = require('cors')
 
 // Create an instance of the Express app
-const app = express();
+const app = express()
 
 // Create a router to handle routes
-const router = express.Router();
+const router = express.Router()
 
 const results = {
   distance: 3.271,
-  time: 10,
-};
+  time: 10
+}
 
 // Define a route that responds with a JSON object when a GET request is made to the root path
-router.get("/", (req, res) => {
-  res.json(results);
-});
+router.get('/', (req, res) => {
+  res.json(results)
+})
+
+app.use(cors())
 
 // Use the router to handle requests to the `/.netlify/functions/route` path
-app.use(`/.netlify/functions/route`, router);
+app.use(`/.netlify/functions/route`, router)
 
 // Export the app and the serverless function
-module.exports = app;
-module.exports.handler = serverless(app);
+module.exports = app
+module.exports.handler = serverless(app)
