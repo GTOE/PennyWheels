@@ -20,6 +20,8 @@ h1 {
   align-items: center;
 }
 
-#panel > h3 {
-  text-align: center;
+#panel {
+  h3 {
+    text-align: center;
+  }
 }
