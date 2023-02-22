@@ -6,26 +6,20 @@ const config = {
     ROUTE_ENDPOINT: `http://localhost:9000/.netlify/functions/route/`
   },
   element: {
-    COUNT_BTN: `#count-btn`
+    CALCULATE_BTN: `#calculate-btn`
   }
 }
 
-const trigger = document.querySelector(config.element.COUNT_BTN)
+const trigger = document.querySelector(config.element.CALCULATE_BTN)
 
 trigger.addEventListener('click', handleClick)
+
 async function handleClick(event) {
   event.preventDefault()
 
-  const MOCK_VALUE = `10/22`
-
-  const response = await getRoute(MOCK_VALUE)
-  console.log('response: ' + response)
-}
-
-function getRoute(value) {
-  try {
-    fetch(config.endpoint.CARS_ENDPOINT + value)
-  } catch (err) {
-    console.log('NOK - ' + err)
-  }
+  fetch(config.endpoint.ROUTE_ENDPOINT)
+    .then((response) => response.json())
+    .then((data) => {
+      fetch(config.endpoint.CARS_ENDPOINT + `${data.distance}/${data.time}`)
+    })
 }
