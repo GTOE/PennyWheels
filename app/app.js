@@ -1,4 +1,4 @@
-//import './here-maps'
+// import './here-maps'
 
 const config = {
   endpoint: {
@@ -31,10 +31,11 @@ async function handleClick(event) {
 
 function showResults(data) {
   const resultListEl = document.querySelector(config.element.RESULT_LIST)
-  document.querySelectorAll('li').forEach((el) => el.remove())
+  document.querySelectorAll('.results').forEach((el) => el.remove())
 
   data.forEach((element) => {
     const listEl = document.createElement('li')
+    listEl.setAttribute('class', 'results')
     listEl.innerHTML = `<b>Anbieter:</b> ${element.firm} <br> <b>Modell:</b> ${
       element.car
     } <br> <b>Gesamtkosten: ${Math.round(element.total * 100) / 100} €</b>`

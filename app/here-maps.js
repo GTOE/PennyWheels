@@ -16,6 +16,7 @@ function calculateRouteFromAtoB(platform) {
       transportMode: 'car',
       origin: '52.5160,13.3779', // Brandenburg Gate
       destination: '52.5206,13.3862', // Friedrichstraße Railway Station
+      language: 'de-de',
       return: 'polyline,turnByTurnActions,actions,instructions,travelSummary'
     }
 
@@ -66,7 +67,9 @@ var platform = new H.service.Platform({
   apikey: process.env.HERE_API_KEY
 })
 
-var defaultLayers = platform.createDefaultLayers()
+var defaultLayers = platform.createDefaultLayers({
+  lg: 'ger'
+})
 
 // Step 2: initialize a map - this map is centered over Berlin
 var map = new H.Map(mapContainer, defaultLayers.vector.normal.map, {
@@ -84,7 +87,7 @@ window.addEventListener('resize', () => map.getViewPort().resize())
 var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map))
 
 // Create the default UI components
-var ui = H.ui.UI.createDefault(map, defaultLayers)
+var ui = H.ui.UI.createDefault(map, defaultLayers, 'de-DE')
 
 // Hold a reference to any infobubble opened
 var bubble
@@ -221,12 +224,12 @@ function addSummaryToPanel(route) {
 
   var summaryDiv = document.createElement('div'),
     content =
-      '<b>Total distance</b>: ' +
+      '<b>Entfernung</b>: ' +
       distance +
-      'm. <br />' +
-      '<b>Travel Time</b>: ' +
+      ' m. <br />' +
+      '<b>Geschätzte Zeit</b>: ' +
       toMMSS(duration) +
-      ' (in current traffic)'
+      ' (im aktuellen Verkehr)'
 
   summaryDiv.style.marginLeft = '5%'
   summaryDiv.style.marginRight = '5%'
@@ -264,7 +267,9 @@ function addManueversToPanel(route) {
 }
 
 function toMMSS(duration) {
-  return Math.floor(duration / 60) + ' minutes ' + (duration % 60) + ' seconds.'
+  return (
+    Math.floor(duration / 60) + ' Minute(n) ' + (duration % 60) + ' Sekunden.'
+  )
 }
 
 // Now use the map as required...
