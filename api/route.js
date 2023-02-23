@@ -12,26 +12,31 @@ const app = express()
 // Create a router to handle routes
 const router = express.Router()
 
-const results = {
-  distance: 3.271,
-  time: 10
-}
+// const results = {
+//   distance: 3.271,
+//   time: 10
+// }
 
 const URL =
   'https://router.hereapi.com/v8/routes?transportMode=car&origin=52.5308,13.3847&destination=52.5264,13.3686&return=summary&apikey=' +
   process.env.HERE_API_KEY
-console.log('URL', URL)
 
 // Define a route that responds with a JSON object when a GET request is made to the root path
-router.get('/', (req, res) => {
-  // TODO: fix this!!!!
+router.get('/', (req, response) => {
   https.get(URL, (res) => {
-    res.on('data', (d) => {
-      console.log(d)
+    let data = ''
+
+    res.on('data', (chunk) => {
+      data += chunk
+    })
+
+    res.on('end', () => {
+      let results = data
+      console.log(results)
+
+      response.send(results)
     })
   })
-
-  res.json(results)
 })
 
 app.use(cors())

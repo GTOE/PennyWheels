@@ -22,6 +22,12 @@ async function handleClick(event) {
   fetch(config.endpoint.ROUTE_ENDPOINT)
     .then((response) => response.json())
     .then((data) => {
+      console.log('data', data)
+
+      const route = data.routes[0]
+
+      console.log('route', route)
+
       showTimeAndDistance(data)
       fetch(config.endpoint.CARS_ENDPOINT + `${data.distance}/${data.time}`)
         .then((response) => response.json())
