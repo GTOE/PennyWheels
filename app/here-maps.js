@@ -47,8 +47,8 @@ function onSuccess(result) {
   // ... etc.
 
   var data = {
-    time: route.sections[0].travelSummary.duration,
-    distance: route.sections[0].travelSummary.length,
+    time: route.sections[0].travelSummary.duration / 60,
+    distance: route.sections[0].travelSummary.length / 1000,
   };
 
   localStorage.setItem("data", JSON.stringify(data));

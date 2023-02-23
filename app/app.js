@@ -1,4 +1,4 @@
-import "./here-maps";
+//import "./here-maps";
 import { showTimeAndDistance } from "./utils/renderFunctions";
 import { config } from "./utils/config";
 
