@@ -13,13 +13,18 @@ const config = {
 }
 
 const trigger = document.querySelector(config.element.CALCULATE_BTN)
+const startInput = document.querySelector('#start')
+const destinationInput = document.querySelector('#destination')
 
 trigger.addEventListener('click', handleClick)
 
-async function handleClick(event) {
+function handleClick(event) {
   event.preventDefault()
 
-  fetch(config.endpoint.ROUTE_ENDPOINT)
+  const start = startInput.value
+  const destination = destinationInput.value
+
+  fetch(config.endpoint.ROUTE_ENDPOINT + start + '/' + destination)
     .then((response) => response.json())
     .then((data) => {
       console.log('data', data)
