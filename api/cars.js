@@ -13,7 +13,7 @@ const results = [
     firm: 'Sharenow',
     type: 'S',
     car: 'Citroën C3',
-    unlock: 0.0,
+    unlock: 0.99,
     km: 0.0,
     min: 0.28
   },

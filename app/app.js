@@ -28,8 +28,15 @@ async function handleClick(event) {
 
       console.log('route', route)
 
-      showTimeAndDistance(data)
-      fetch(config.endpoint.CARS_ENDPOINT + `${data.distance}/${data.time}`)
+      const tripSummary = route.sections[0].summary
+
+      showTimeAndDistance(tripSummary)
+      fetch(
+        config.endpoint.CARS_ENDPOINT +
+          `${Math.round(tripSummary.length / 1000)}/${Math.round(
+            tripSummary.duration / 60
+          )}`
+      )
         .then((response) => response.json())
         .then(showResults)
     })
@@ -54,7 +61,9 @@ function showTimeAndDistance(data) {
   const timeDistanceInfoEl = document.querySelector(
     config.element.TIME_DISTANCE_INFO
   )
-  timeDistanceInfoEl.innerHTML = `<b>Geschätzte Zeit:</b> ${
-    data.time
-  } Minute(n) <b>Entfernung:</b> ${Math.round(data.distance * 100) / 100} km`
+  timeDistanceInfoEl.innerHTML = `<b>Geschätzte Zeit:</b> ${Math.round(
+    data.duration / 60
+  )} Minute(n) ${
+    data.duration % 60
+  } Sekunde(n) im aktuellen Verkehr <b>Entfernung:</b> ${data.length / 1000} km`
 }
