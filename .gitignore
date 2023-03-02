@@ -5,3 +5,6 @@
 /dist
 # Local Netlify folder
 .netlify
+# Local credentials and environment variables
+credentials.properties
+.env
