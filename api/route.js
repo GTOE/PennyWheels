@@ -28,24 +28,29 @@ router.get('/:start/:destination', (req, response) => {
   // hand them into rout call
 
   // URL encode?
-  const start = req.params.start.replaceAll(' ', '+')
-  const destination = req.params.destination.replaceAll(' ', '+')
+  const start = encodeURIComponent(req.params.start)
+  const destination = encodeURIComponent(req.params.destination)
 
-  const geoStartURL = decodeURI(
+  //console.log(req.params, start, destination)
+
+  const geoStartURL =
     'https://geocode.search.hereapi.com/v1/geocode?q=' +
-      start +
-      '&apiKey=' +
-      process.env.HERE_API_KEY
-  )
-  const geoDestinationURL = decodeURI(
+    start +
+    '&apiKey=' +
+    process.env.HERE_API_KEY
+
+  const geoDestinationURL =
     'https://geocode.search.hereapi.com/v1/geocode?q=' +
-      destination +
-      '&apiKey=' +
-      process.env.HERE_API_KEY
-  )
+    destination +
+    '&apiKey=' +
+    process.env.HERE_API_KEY
 
   const longLatStart = getLongLat(geoStartURL)
-  console.log(longLatStart)
+  //console.log(longLatStart)
+
+  longLatStart.then(function (coordinates) {
+    console.log('coordinates', coordinates)
+  })
 
   // https.get(geoStartURL, (res) => {
   //   let data = ''
@@ -82,7 +87,7 @@ router.get('/:start/:destination', (req, response) => {
 
     res.on('end', () => {
       let results = data
-      console.log(results)
+      //console.log(results)
 
       response.send(results)
     })
@@ -90,15 +95,20 @@ router.get('/:start/:destination', (req, response) => {
 })
 
 function getLongLat(address) {
+  console.log('getLongLat', address)
   const longLat = new Promise((resolve, reject) => {
     https.get(address, (res) => {
-      if (res.status == '200') {
-        let data = ''
+      console.log('res', res.statusCode, res)
+      if (res.statusCode == '200') {
+        let data = []
         res.on('data', (chunk) => {
-          data += chunk
+          data.push(chunk)
+          console.log('data + chunk types', typeof data, typeof chunk)
         })
         res.on('end', () => {
           let start = data
+
+          console.log('start', start)
 
           const coordinates = {
             long: start.items[0].position.lng,
@@ -109,6 +119,7 @@ function getLongLat(address) {
         })
       }
       res.on('error', (error) => {
+        console.log('err', error)
         reject(error)
       })
     })
